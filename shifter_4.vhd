@@ -3,19 +3,19 @@ use ieee.std_logic_1164.all;
 
 entity shifter_4 is
 	Port(
-    sh4      : in std_logic;
-    A_sh4	    : in std_logic_vector(15 downto 0);
-    A_shifted_sh4	: out std_logic_vector(15 downto 0));
+		sh4: in std_logic;
+		A_sh4: in std_logic_vector(15 downto 0);
+		A_shifted_sh4: out std_logic_vector(15 downto 0));
 end shifter_4;
 
 architecture behav of shifter_4 is
 
 	component mux is
 		Port(
-      a_mux, b_mux : in std_logic;
-      s_mux    : in std_logic;
-      c_mux	   : out std_logic);
-  end component;
+			a_mux, b_mux: in std_logic;
+			s_mux: in std_logic;
+			c_mux: out std_logic);
+	end component;
 
 begin
 

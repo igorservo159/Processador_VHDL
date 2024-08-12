@@ -3,37 +3,37 @@ use ieee.std_logic_1164.all;
 
 entity alu is
 	Port(
-		x, y, z : in std_logic;
-		A, B : in std_logic_vector(15 downto 0);
-		S : out std_logic_vector(15 downto 0));
+		x, y, z: in std_logic;
+		A, B: in std_logic_vector(15 downto 0);
+		S: out std_logic_vector(15 downto 0));
 end alu;
 
 architecture behav of alu is
 
-	signal IA, IB	   : std_logic_vector(15 downto 0);
-	signal cin, cout : std_logic;
+	signal IA, IB: std_logic_vector(15 downto 0);
+	signal cin, cout: std_logic;
 	
 	component barrel_shifter is
 		port(
-			x_bs, y_bs        : in std_logic;
-			A_bs	    : in std_logic_vector(15 downto 0);
-			B_bs	    : in std_logic_vector(3 downto 0);
-			A_shifted_bs	  : out std_logic_vector(15 downto 0));
+			x_bs, y_bs: in std_logic;
+			A_bs: in std_logic_vector(15 downto 0);
+			B_bs: in std_logic_vector(3 downto 0);
+			A_shifted_bs: out std_logic_vector(15 downto 0));
 	end component;
 
 	component alext is
 		Port(
-			x_al, y_al 	 : in std_logic;
-			a_al, b_al	 : in std_logic;
-			ia_al, ib_al : out std_logic);
+			x_al, y_al: in std_logic;
+			a_al, b_al: in std_logic;
+			ia_al, ib_al: out std_logic);
 		end component;
 	
 	component somador16 is
 		port(
-			A_s16, B_s16	: in std_logic_vector(15 downto 0);
-			cin_s16		: in std_logic;
-			cout_s16	: out std_logic;
-			Z_s16			: out std_logic_vector(15 downto 0));
+			A_s16, B_s16: in std_logic_vector(15 downto 0);
+			cin_s16: in std_logic;
+			cout_s16: out std_logic;
+			Z_s16: out std_logic_vector(15 downto 0));
 	end component;
 	
 begin

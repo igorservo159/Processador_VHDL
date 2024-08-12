@@ -3,40 +3,40 @@ use ieee.std_logic_1164.all;
 
 entity barrel_shifter is
 	Port(
-    x_bs, y_bs        : in std_logic;
-    A_bs	    : in std_logic_vector(15 downto 0);
-    B_bs	    : in std_logic_vector(3 downto 0);
-    A_shifted_bs	  : out std_logic_vector(15 downto 0));
+    x_bs, y_bs: in std_logic;
+    A_bs: in std_logic_vector(15 downto 0);
+    B_bs: in std_logic_vector(3 downto 0);
+    A_shifted_bs: out std_logic_vector(15 downto 0));
 end barrel_shifter;
 
 architecture behav of barrel_shifter is
 
 	component shifter_1 is
 		Port(
-      sh1      : in std_logic;
-      A_sh1	    : in std_logic_vector(15 downto 0);
-      A_shifted_sh1	: out std_logic_vector(15 downto 0));
+      sh1: in std_logic;
+      A_sh1: in std_logic_vector(15 downto 0);
+      A_shifted_sh1: out std_logic_vector(15 downto 0));
   end component;
 
 	component shifter_2 is
 		Port(
-      sh2      : in std_logic;
-      A_sh2	    : in std_logic_vector(15 downto 0);
-      A_shifted_sh2	: out std_logic_vector(15 downto 0));
+      sh2: in std_logic;
+      A_sh2: in std_logic_vector(15 downto 0);
+      A_shifted_sh2: out std_logic_vector(15 downto 0));
   end component;
 
 	component shifter_4 is
 		Port(
-      sh4      : in std_logic;
-      A_sh4	    : in std_logic_vector(15 downto 0);
-      A_shifted_sh4	: out std_logic_vector(15 downto 0));
+      sh4: in std_logic;
+      A_sh4: in std_logic_vector(15 downto 0);
+      A_shifted_sh4: out std_logic_vector(15 downto 0));
     end component;
 
 	component shifter_8 is
 		Port(
-      sh8      : in std_logic;
-      A_sh8	    : in std_logic_vector(15 downto 0);
-      A_shifted_sh8	: out std_logic_vector(15 downto 0));
+      sh8: in std_logic;
+      A_sh8: in std_logic_vector(15 downto 0);
+      A_shifted_sh8: out std_logic_vector(15 downto 0));
     end component;
 
 begin

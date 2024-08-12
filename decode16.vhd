@@ -3,15 +3,15 @@ use ieee.std_logic_1164.all;
 
 entity decode16 is
 	port(
-		en				   : in std_logic;
-		i					   : in std_logic_vector(3 downto 0);
-		D					   : out std_logic_vector(15 downto 0));
+		en_d16: in std_logic;
+		i_d16: in std_logic_vector(3 downto 0);
+		D_d16: out std_logic_vector(15 downto 0));
 end decode16;
 
 architecture behav of decode16 is
 
-	signal out_aux : std_logic_vector (15 downto 0);
-	signal in_aux	 : std_logic_vector (4 downto 0);
+	signal out_aux: std_logic_vector (15 downto 0);
+	signal in_aux: std_logic_vector (4 downto 0);
 
 begin
 
@@ -36,6 +36,6 @@ out_aux <=	"0000000000000001" when "10000",
 			"1000000000000000" when "11111",
 			"0000000000000000" when others;
 
-D <= out_aux(15 downto 0);
+D_d16 <= out_aux(15 downto 0);
 
 end behav;
