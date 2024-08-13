@@ -21,5 +21,5 @@ end mux16_1;
 architecture main of mux16_1 is
 begin
 	-- Seleciona a entrada com base no valor de S e atribui a Z
-	Z_m16 <= A_m16(to_integer(unsigned(S)));
+	Z_m16 <= A_m16(to_integer(unsigned(S_m16)));
 end architecture main;

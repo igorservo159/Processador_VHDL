@@ -10,5 +10,5 @@ end mux;
 
 architecture behav of mux is
 begin
-	c <= (a_mux and not s_mux) or (b_mux and s_mux);
+	c_mux <= (a_mux and not s_mux) or (b_mux and s_mux);
 end behav;
