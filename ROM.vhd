@@ -2,15 +2,15 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 
-entity rom is
+entity ROM is
 port(
    clk_rom : in std_logic; 
    rom_en : in std_logic;
    rom_addr : in std_logic_vector(3 downto 0);
-   data_out_rom : out std_logic_vector(15 downto 0)
+   data_out_rom : out std_logic_vector(15 downto 0);
 );
-end rom;
-architecture behav of rom is
+end ROM;
+architecture behav of ROM is
  type rom_type is array(0 to 15) of std_logic_vector(15 downto 0);
 
  constant mem: rom_type :=
