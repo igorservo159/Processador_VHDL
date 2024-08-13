@@ -10,7 +10,11 @@ end mux4_1;
 
 architecture behav of mux4_1 is
 begin
-    d_mux4 <= (c_mux4 and not s1_mux4 and not s0_mux4)
-           or (b_mux4 and not s1_mux4 and  s0_mux4)
-           or (a_mux4 and s1_mux4 and not s0_mux4);
+  
+  mux4_1i: for i in 15 downto 0 generate
+    d_mux4(i) <= (c_mux4(i) and not s1_mux4 and not s0_mux4)
+                 or (b_mux4(i) and not s1_mux4 and s0_mux4)
+                 or (a_mux4(i) and s1_mux4 and not s0_mux4);
+  end generate mux4_1i;
+
 end behav;

@@ -6,7 +6,7 @@ entity RAM is
      port(
           clk_ram : in std_logic; 
           rd_ram, wr_ram: in std_logic;
-          addr_ram : in std_logic_vector(15 downto 0);
+          addr_ram : in std_logic_vector(7 downto 0);
           data_input_ram : in std_logic_vector(15 downto 0);
           data_output_ram : out std_logic_vector(15 downto 0));
 end RAM;
@@ -14,7 +14,7 @@ end RAM;
 architecture behav of RAM is
      type ram_type is array(0 to 255) of std_logic_vector(15 downto 0);
      signal ram: ram_type;
-     signal temp_address: std_logic_vector(3 downto 0);
+     signal temp_address: std_logic_vector(7 downto 0);
 
 begin
 
@@ -24,10 +24,10 @@ begin
           if (wr_ram = '0') then
                temp_address <= addr_ram;
           elsif (wr_ram = '1') then
-               ram(conv_integer(unsigned(addr_ram))) <= data_input_ram;
+               ram(to_integer(unsigned(addr_ram))) <= data_input_ram;
           end if;
           if (rd_ram = '0') then
-               data_output_ram <= '0000000000000000';
+               data_output_ram <= "0000000000000000";
           elsif (rd_ram = '1') then
                data_output_ram <= ram(to_integer(unsigned(temp_address)));
           end if;
