@@ -51,27 +51,31 @@ begin
 
 	deco: decode16 port map(en_d16=>W_wr, i_d16=>W_addr, D_d16=>out_deco);
 
-	reg0: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(0), D_r16=>W_data, Q_r16=>out_regs(0));
-	reg1: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(1), D_r16=>W_data, Q_r16=>out_regs(1));
-	reg2: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(2), D_r16=>W_data, Q_r16=>out_regs(2));
-	reg3: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(3), D_r16=>W_data, Q_r16=>out_regs(3));
-	reg4: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(4), D_r16=>W_data, Q_r16=>out_regs(4));
-	reg5: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(5), D_r16=>W_data, Q_r16=>out_regs(5));
-	reg6: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(6), D_r16=>W_data, Q_r16=>out_regs(6));
-	reg7: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(7), D_r16=>W_data, Q_r16=>out_regs(7));
-	reg8: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(8), D_r16=>W_data, Q_r16=>out_regs(8));
-	reg9: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(9), D_r16=>W_data, Q_r16=>out_regs(9));
-	reg10: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(10), D_r16=>W_data, Q_r16=>out_regs(10));
-	reg11: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(11), D_r16=>W_data, Q_r16=>out_regs(11));
-	reg12: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(12), D_r16=>W_data, Q_r16=>out_regs(12));
-	reg13: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(13), D_r16=>W_data, Q_r16=>out_regs(13));
-	reg14: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(14), D_r16=>W_data, Q_r16=>out_regs(14));
-	reg15: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(15), D_r16=>W_data, Q_r16=>out_regs(15));
+  regs: for i in 15 downto 0 generate
+    reg: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(i), D_r16=>W_data, Q_r16=>out_regs(i));
+  end generate regs;
+
+	-- reg0: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(0), D_r16=>W_data, Q_r16=>out_regs(0));
+	-- reg1: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(1), D_r16=>W_data, Q_r16=>out_regs(1));
+	-- reg2: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(2), D_r16=>W_data, Q_r16=>out_regs(2));
+	-- reg3: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(3), D_r16=>W_data, Q_r16=>out_regs(3));
+	-- reg4: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(4), D_r16=>W_data, Q_r16=>out_regs(4));
+	-- reg5: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(5), D_r16=>W_data, Q_r16=>out_regs(5));
+	-- reg6: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(6), D_r16=>W_data, Q_r16=>out_regs(6));
+	-- reg7: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(7), D_r16=>W_data, Q_r16=>out_regs(7));
+	-- reg8: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(8), D_r16=>W_data, Q_r16=>out_regs(8));
+	-- reg9: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(9), D_r16=>W_data, Q_r16=>out_regs(9));
+	-- reg10: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(10), D_r16=>W_data, Q_r16=>out_regs(10));
+	-- reg11: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(11), D_r16=>W_data, Q_r16=>out_regs(11));
+	-- reg12: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(12), D_r16=>W_data, Q_r16=>out_regs(12));
+	-- reg13: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(13), D_r16=>W_data, Q_r16=>out_regs(13));
+	-- reg14: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(14), D_r16=>W_data, Q_r16=>out_regs(14));
+	-- reg15: reg16 port map(clk_r16=>clk_rf, load_r16=>out_deco(15), D_r16=>W_data, Q_r16=>out_regs(15));
 
 	mux0: mux16_1 port map(A_m16=>out_regs, S_m16=>Rp_addr, Z_m16=>auxP);
 	mux1: mux16_1 port map(A_m16=>out_regs, S_m16=>Rq_addr, Z_m16=>auxQ);
 
-	Rp_data <= auxP and (others => Rp_rd);
-	Rq_data <= auxQ and (others => Rq_rd);
+	Rp_data <= auxP and (others => Rp_rd); -- FICAR DE OLHO
+	Rq_data <= auxQ and (others => Rq_rd); -- FICAR DE OLHO
 	
 end behav;

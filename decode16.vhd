@@ -15,7 +15,7 @@ architecture behav of decode16 is
 
 begin
 
-in_aux <= en & i(3) & i(2) &i(1) & i(0);
+in_aux <= en_d16 & i_d16(3) & i_d16(2) &i_d16(1) & i_d16(0);
 
 with in_aux select
 out_aux <=	"0000000000000001" when "10000",

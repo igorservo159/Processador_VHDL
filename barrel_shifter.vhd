@@ -40,9 +40,9 @@ architecture behav of barrel_shifter is
     end component;
 
 begin
-  s0 : shifter_1 port map(sh1=>(x_bs and y_bs and B_bs(0)), A_sh1=>A, A_shifted_sh1=>A_shifted_bs);
-  s1 : shifter_2 port map(sh2=>(x_bs and y_bs and B_bs(1)), A_sh2=>A, A_shifted_sh2=>A_shifted_bs);
-  s2 : shifter_4 port map(sh4=>(x_bs and y_bs and B_bs(2)), A_sh4=>A, A_shifted_sh4=>A_shifted_bs);
-  s3 : shifter_8 port map(sh8=>(x_bs and y_bs and B_bs(3)), A_sh8=>A, A_shifted_sh8=>A_shifted_bs);
+  s0 : shifter_1 port map(sh1=>(x_bs and y_bs and B_bs(0)), A_sh1=>A_bs, A_shifted_sh1=>A_shifted_bs);
+  s1 : shifter_2 port map(sh2=>(x_bs and y_bs and B_bs(1)), A_sh2=>A_bs, A_shifted_sh2=>A_shifted_bs);
+  s2 : shifter_4 port map(sh4=>(x_bs and y_bs and B_bs(2)), A_sh4=>A_bs, A_shifted_sh4=>A_shifted_bs);
+  s3 : shifter_8 port map(sh8=>(x_bs and y_bs and B_bs(3)), A_sh8=>A_bs, A_shifted_sh8=>A_shifted_bs);
 	
 end behav;
