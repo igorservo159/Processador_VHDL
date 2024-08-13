@@ -5,6 +5,8 @@ package bus_aray_pkg is
         type bus_array is array(15 downto 0) of std_logic_vector(15 downto 0);
 end package;
 
+library ieee;
+use ieee.std_logic_1164.all;
 use work.bus_array_pkg.all;
 
 entity datapath is
@@ -45,7 +47,7 @@ architecture behav of datapath is
 
 	component mux4_1 is
 		port(
-			a_mux4, b_mux4, c_mux4: in std_logic_vector(15);
+			a_mux4, b_mux4, c_mux4: in std_logic_vector(15 downto 0);
 			s1_mux4, s0_mux4: in std_logic;
 			d_mux4: out std_logic_vector(15 downto 0));
 	end component;

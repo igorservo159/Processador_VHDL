@@ -1,31 +1,31 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
-USE ieee.std_logic_arith.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
 
-ENTITY ROM IS
-PORT(
-           clock : IN STD_LOGIC; 
-           rom_enable : IN STD_LOGIC;
-           address : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-           data_output : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+entity rom is
+port(
+   clk_rom : in std_logic; 
+   rom_en : in std_logic;
+   rom_addr : in std_logic_vector(3 downto 0);
+   data_out_rom : out std_logic_vector(15 downto 0)
 );
-END ROM;
-ARCHITECTURE behav OF ROM IS
-     TYPE rom_type IS ARRAY(0 to 15) OF STD_LOGIC_VECTOR(7 DOWNTO 0);
-    
-     CONSTANT mem: rom_type :=
-           (2 => "01011001", -- Aloca um dado no endereço 2
-            3 => "00000100", -- Aloca um dado no endereço 3
-            4 => "00100101", -- Aloca um dado no endereço 4
-            others => "00000000"  -- Aloca 0 no outros endereços
-            );
+end rom;
+architecture behav of rom is
+ type rom_type is array(0 to 15) of std_logic_vector(15 downto 0);
 
-BEGIN
+ constant mem: rom_type :=
+   (1 => "0011000000000110",  -- "0011 0000 00000110"
+    2 => "0011000100000101",  -- "0011 0001 00000101"
+    3 => "0110001000000001",  -- "0110 0010 0000 0001"
+    4 => "0001001000000000",  -- "0001 0010 00000000"
+    others => "0000000000000000");
 
-PROCESS(clock) IS
-BEGIN
-    IF (RISING_EDGE(clock) AND rom_enable = '1') THEN
-           data_output <= mem(conv_integer(unsigned(address)));
-    END IF;
-END PROCESS;
-END behav;
+begin
+
+process(clk_rom) is
+begin
+  if (rising_edge(clk_rom) and rom_en = '1') then
+     data_out_rom <= mem(conv_integer(unsigned(rom_addr)));
+  end if;
+end process;
+end behav;

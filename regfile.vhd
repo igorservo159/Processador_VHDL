@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use work.bus_array_pkg.all;
 
 entity regfile is
 	Port(
@@ -19,10 +20,10 @@ entity regfile is
 end regfile;
 
 architecture behav of regfile is
-	type tmp_array is array(0 to 15) of std_logic_vector(15 downto 0);
+	-- type tmp_array is array(0 to 15) of std_logic_vector(15 downto 0);
 
 	signal out_deco: std_logic_vector(15 downto 0);
-	signal out_regs: tmp_array;
+	signal out_regs: bus_array;
 	signal auxP, auxQ: std_logic_vector(15 downto 0);
 
 component decode16 is

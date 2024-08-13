@@ -1,5 +1,5 @@
 library ieee;
-use ieee.std_logic_11616.all;
+use ieee.std_logic_1164.all;
 
 entity somador16 is
 	Port(
@@ -26,7 +26,7 @@ architecture behav of somador16 is
     adder : full_adder port map(a_fa=>A_s16(i), b_fa=>B_s16(i), cin_fa=>cout_sig(i-1), cout_fa=>cout_sig(i), z_fa=>Z_s16(i));
   end generate;
   
-  cout_s16 = cout_sig(15)
+  cout_s16 <= cout_sig(15);
 
 	-- a1 : full_adder port map(a=>A(1), b=>B(1), Cin=>cout_sig(0), cout=>cout_sig(1), z=>Z(1));
 	-- a2 : full_adder port map(a=>A(2), b=>B(2), Cin=>cout_sig(1), cout=>cout_sig(2), z=>Z(2));
