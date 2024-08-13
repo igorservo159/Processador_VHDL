@@ -1,33 +1,36 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
-USE ieee.std_logic_arith.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
-ENTITY RAM IS
-PORT(
-           clock : IN STD_LOGIC; 
-           rw_enable : IN STD_LOGIC;
-           mem_enable : IN STD_LOGIC;
-           address : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-           data_input : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-           data_output : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
-);
-END RAM;
-ARCHITECTURE behav OF RAM IS
-     TYPE ram_type IS ARRAY(0 to 15) OF STD_LOGIC_VECTOR(7 DOWNTO 0);
-     SIGNAL ram: ram_type;
-     SIGNAL temp_address: STD_LOGIC_VECTOR(3 DOWNTO 0);
+entity RAM is
+     port(
+          clk_ram : in std_logic; 
+          rd_ram, wr_ram: in std_logic;
+          addr_ram : in std_logic_vector(15 downto 0);
+          data_input_ram : in std_logic_vector(15 downto 0);
+          data_output_ram : out std_logic_vector(15 downto 0));
+end RAM;
 
-BEGIN
+architecture behav of RAM is
+     type ram_type is array(0 to 255) of std_logic_vector(15 downto 0);
+     signal ram: ram_type;
+     signal temp_address: std_logic_vector(3 downto 0);
 
-PROCESS(clock) IS
-BEGIN
-    IF (RISING_EDGE(clock) AND mem_enable = '1') THEN
-           IF (rw_enable = '0') THEN
-                temp_address <= address;
-           ELSIF (rw_enable = '1') THEN
-                ram(conv_integer(unsigned(address))) <= data_input;
-           END IF;
-           data_output <= ram(conv_integer(unsigned(temp_address)));
-    END IF;
-END PROCESS;
-END behav;
+begin
+
+process(clk_ram) is
+begin
+    if (rising_edge(clk_ram)) then
+          if (wr_ram = '0') then
+               temp_address <= addr_ram;
+          elsif (wr_ram = '1') then
+               ram(conv_integer(unsigned(addr_ram))) <= data_input_ram;
+          end if;
+          if (rd_ram = '0') then
+               data_output_ram <= '0000000000000000';
+          elsif (rd_ram = '1') then
+               data_output_ram <= ram(to_integer(unsigned(temp_address)));
+          end if;
+    end if;
+end process;
+end behav;
