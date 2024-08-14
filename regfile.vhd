@@ -75,7 +75,7 @@ begin
 	mux0: mux16_1 port map(A_m16=>out_regs, S_m16=>Rp_addr, Z_m16=>auxP);
 	mux1: mux16_1 port map(A_m16=>out_regs, S_m16=>Rq_addr, Z_m16=>auxQ);
 
-	Rp_data <= auxP and (others => Rp_rd); -- FICAR DE OLHO
-	Rq_data <= auxQ and (others => Rq_rd); -- FICAR DE OLHO
+	Rp_data <= auxP when Rp_rd = '1' else (others => '0');
+	Rq_data <= auxQ when Rq_rd = '1' else (others => '0');
 	
 end behav;

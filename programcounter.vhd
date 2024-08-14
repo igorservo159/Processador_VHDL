@@ -1,13 +1,13 @@
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
 
 entity programcounter is
   port (
-    clk_pc, ld_pc, clr_pc, up_pc : in std_logic;
-    offset                       : in std_logic_vector(3 downto 0);
-    out_pc                       : out std_logic_vector(3 downto 0)
+    clk_pc, ld_pc, clr_pc, up_pc: in std_logic;
+    offset: in std_logic_vector(3 downto 0);
+    out_pc: out std_logic_vector(3 downto 0)
   );
 end programcounter;
 
@@ -18,10 +18,10 @@ begin
   process(clk_pc, clr_pc)
   begin
     if clr_pc = '1' then
-      pc <= (others => '0');
-    elsif rising_edge(clk_pc) then
+      pc <= "0000";
+    elsif clk_pc = '1' and rising_edge(clk_pc) then
       if ld_pc = '1' then
-        pc <= offset;
+        pc <= std_logic_vector(to_unsigned(to_integer(unsigned( pc )) + to_integer(unsigned(offset)), 4));
       elsif up_pc = '1' then
         pc <= std_logic_vector(to_unsigned(to_integer(unsigned( pc )) + 1, 4));
         

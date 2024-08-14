@@ -7,13 +7,13 @@ entity PC_ctl is
 		PC_out: out std_logic_vector(2 downto 0));
 end PC_ctl;
 
-architecture behav of alu_ctl is
+architecture behav of PC_ctl is
 	begin
 
-	PC_out(0) <= S(3) and not(S(2)) and not(S(1)) and S(0); 
+	PC_out(0) <= S_PC(3) and not(S_PC(2)) and not(S_PC(1)) and S_PC(0); 
 
-	PC_out(1) <= not(S(3)) and not(S(2)) and not(S(1)) and S(0);
+	PC_out(1) <= not(S_PC(3)) and not(S_PC(2)) and not(S_PC(1)) and S_PC(0);
 				  
-	PC_out(2) <= not(S(3)) and not(S(2)) and not(S(1)) and not(S(0));
+	PC_out(2) <= not(S_PC(3)) and not(S_PC(2)) and not(S_PC(1)) and not(S_PC(0));
 
 end behav;

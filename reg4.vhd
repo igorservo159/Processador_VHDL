@@ -1,14 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity reg16 is
+entity reg4 is
 	port(
 		clk_reg4: in std_logic;
 		D_reg4: in std_logic_vector(3 downto 0);
 		Q_reg4: out std_logic_vector(3 downto 0));
-end reg16;
+end reg4;
 
-architecture behav of reg16 is
+architecture behav of reg4 is
 begin
 
 	process(clk_reg4)

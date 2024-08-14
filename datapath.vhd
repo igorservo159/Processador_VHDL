@@ -1,13 +1,13 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-package bus_aray_pkg is
+package bus_array_pkg is
         type bus_array is array(15 downto 0) of std_logic_vector(15 downto 0);
 end package;
 
 library ieee;
-use ieee.std_logic_1164.all;
 use work.bus_array_pkg.all;
+use ieee.std_logic_1164.all;
 
 entity datapath is
 	Port(
@@ -29,6 +29,7 @@ entity datapath is
 		RF_Rq_rd: in std_logic;
 
 		RF_Rp_zero: out std_logic;
+		RF_saida_dt:  out std_logic_vector(15 downto 0);
 		
 		ALU_s1, ALU_s0: in std_logic);
 end datapath;
@@ -43,6 +44,7 @@ architecture behav of datapath is
 			addr_ram : in std_logic_vector(7 downto 0);
 			data_input_ram : in std_logic_vector(15 downto 0);
 			data_output_ram : out std_logic_vector(15 downto 0));
+			
 	end component;
 
 	component mux4_1 is
@@ -82,12 +84,17 @@ begin
 	d: RAM port map(clk_ram=>clk_dp, rd_ram=>D_rd, wr_ram=>D_wr, addr_ram=>D_addr, data_input_ram=>A_aux, data_output_ram=>R_data_aux);
   -- A_aux é o W_data e o R_data_aux é o R_data
 
+  	RF_saida_dt <= R_data_aux;
+	
 	m: mux4_1 port map(a_mux4=>RF_W_data, b_mux4=>R_data_aux, c_mux4=>D_aux, s1_mux4=>RF_s1, s0_mux4=>RF_s0, d_mux4=>C_aux);
   -- C_aux é o W_data do RF
 
-  rf: regfile port map(clk_rf=>clk_dp, W_data=>C_aux, W_addr=>RF_W_addr, W_wr=>RF_W_wr, Rp_addr=>RF_Rp_addr, Rp_rd=>RF_Rp_rd, Rp_data=>A_aux, Rq_addr=>RF_Rq_addr, Rq_rd=>RF_Rq_rd, Rq_data=>B_aux);
+	rf: regfile port map(clk_rf=>clk_dp, W_data=>C_aux, W_addr=>RF_W_addr, W_wr=>RF_W_wr, Rp_addr=>RF_Rp_addr, Rp_rd=>RF_Rp_rd, Rp_data=>A_aux, Rq_addr=>RF_Rq_addr, Rq_rd=>RF_Rq_rd, Rq_data=>B_aux);
 
- 	al: alu port map(x => ALU_s0, y => ALU_s1, A=>A_aux, B=>B_aux, S=>D_aux);
+ 	al: alu port map(x => ALU_s1, y => ALU_s0, A=>A_aux, B=>B_aux, S=>D_aux);
 
 	RF_Rp_zero <= '1' when A_aux = "0000000000000000" else '0';
+
+	
+
 end behav;

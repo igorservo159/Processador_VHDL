@@ -13,6 +13,6 @@ architecture behav of alext is
 begin
 
 	ia_al <= a_al;
-	ib_al <= (not x_al and y_al and b_al) or (x_al and not y_al and not b_al);
+	ib_al <= (not x_al and y_al and b_al) or (x_al and not y_al and not(b_al));
 	
 end behav;

@@ -1,0 +1,285 @@
+Analysis & Synthesis report for processor
+Wed Aug 14 12:59:31 2024
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Failed - Wed Aug 14 12:59:31 2024               ;
+; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; processor                                       ;
+; Top-level Entity Name              ; processor                                       ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; N/A until Partition Merge                       ;
+;     Total combinational functions  ; N/A until Partition Merge                       ;
+;     Dedicated logic registers      ; N/A until Partition Merge                       ;
+; Total registers                    ; N/A until Partition Merge                       ;
+; Total pins                         ; N/A until Partition Merge                       ;
+; Total virtual pins                 ; N/A until Partition Merge                       ;
+; Total memory bits                  ; N/A until Partition Merge                       ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                       ;
+; Total PLLs                         ; N/A until Partition Merge                       ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                      ; processor          ; processor          ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Aug 14 12:59:29 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off processor -c processor
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Warning (12125): Using design file processor.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: processor-behav
+    Info (12023): Found entity 1: processor
+Info (12127): Elaborating entity "processor" for the top level hierarchy
+Warning (12125): Using design file datapath.vhd, which is not specified as a design file for the current project, but contains definitions for 3 design units and 1 entities in project
+    Info (12022): Found design unit 1: bus_array_pkg
+    Info (12022): Found design unit 2: datapath-behav
+    Info (12023): Found entity 1: datapath
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:u1"
+Warning (12125): Using design file ram.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: RAM-behav
+    Info (12023): Found entity 1: RAM
+Info (12128): Elaborating entity "RAM" for hierarchy "datapath:u1|RAM:d"
+Warning (12125): Using design file mux4_1.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: mux4_1-behav
+    Info (12023): Found entity 1: mux4_1
+Info (12128): Elaborating entity "mux4_1" for hierarchy "datapath:u1|mux4_1:m"
+Warning (12125): Using design file regfile.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: regfile-behav
+    Info (12023): Found entity 1: regfile
+Info (12128): Elaborating entity "regfile" for hierarchy "datapath:u1|regfile:rf"
+Warning (12125): Using design file decode16.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: decode16-behav
+    Info (12023): Found entity 1: decode16
+Info (12128): Elaborating entity "decode16" for hierarchy "datapath:u1|regfile:rf|decode16:deco"
+Warning (12125): Using design file reg16.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: reg16-behav
+    Info (12023): Found entity 1: reg16
+Info (12128): Elaborating entity "reg16" for hierarchy "datapath:u1|regfile:rf|reg16:\regs:15:reg"
+Warning (12125): Using design file mux16_1.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: mux16_1-main
+    Info (12023): Found entity 1: mux16_1
+Info (12128): Elaborating entity "mux16_1" for hierarchy "datapath:u1|regfile:rf|mux16_1:mux0"
+Warning (12125): Using design file alu.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: alu-behav
+    Info (12023): Found entity 1: alu
+Info (12128): Elaborating entity "alu" for hierarchy "datapath:u1|alu:al"
+Warning (10036): Verilog HDL or VHDL warning at alu.vhd(15): object "cout" assigned a value but never read
+Warning (12125): Using design file barrel_shifter.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: barrel_shifter-behav
+    Info (12023): Found entity 1: barrel_shifter
+Info (12128): Elaborating entity "barrel_shifter" for hierarchy "datapath:u1|alu:al|barrel_shifter:bs"
+Warning (12125): Using design file shifter_8.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: shifter_8-behav
+    Info (12023): Found entity 1: shifter_8
+Info (12128): Elaborating entity "shifter_8" for hierarchy "datapath:u1|alu:al|barrel_shifter:bs|shifter_8:s3"
+Warning (12090): Entity "mux" obtained from "mux.vhd" instead of from Quartus II megafunction library
+Warning (12125): Using design file mux.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: mux-behav
+    Info (12023): Found entity 1: mux
+Info (12128): Elaborating entity "mux" for hierarchy "datapath:u1|alu:al|barrel_shifter:bs|shifter_8:s3|mux:m0"
+Warning (12125): Using design file shifter_4.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: shifter_4-behav
+    Info (12023): Found entity 1: shifter_4
+Info (12128): Elaborating entity "shifter_4" for hierarchy "datapath:u1|alu:al|barrel_shifter:bs|shifter_4:s2"
+Warning (12125): Using design file shifter_2.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: shifter_2-behav
+    Info (12023): Found entity 1: shifter_2
+Info (12128): Elaborating entity "shifter_2" for hierarchy "datapath:u1|alu:al|barrel_shifter:bs|shifter_2:s1"
+Warning (12125): Using design file shifter_1.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: shifter_1-behav
+    Info (12023): Found entity 1: shifter_1
+Info (12128): Elaborating entity "shifter_1" for hierarchy "datapath:u1|alu:al|barrel_shifter:bs|shifter_1:s0"
+Warning (12125): Using design file alext.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: alext-behav
+    Info (12023): Found entity 1: alext
+Info (12128): Elaborating entity "alext" for hierarchy "datapath:u1|alu:al|alext:u0"
+Warning (12125): Using design file somador16.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: somador16-behav
+    Info (12023): Found entity 1: somador16
+Info (12128): Elaborating entity "somador16" for hierarchy "datapath:u1|alu:al|somador16:s0"
+Warning (12125): Using design file full_adder.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: full_adder-behav
+    Info (12023): Found entity 1: full_adder
+Info (12128): Elaborating entity "full_adder" for hierarchy "datapath:u1|alu:al|somador16:s0|full_adder:a0"
+Warning (12125): Using design file control_unit.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: control_unit-behav
+    Info (12023): Found entity 1: control_unit
+Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:u2"
+Warning (10036): Verilog HDL or VHDL warning at control_unit.vhd(80): object "sum_ctl_un_cout" assigned a value but never read
+Warning (12125): Using design file controller.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: controller-behav
+    Info (12023): Found entity 1: controller
+Info (12128): Elaborating entity "controller" for hierarchy "control_unit:u2|controller:u1"
+Warning (12125): Using design file reg4.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: reg4-behav
+    Info (12023): Found entity 1: reg4
+Info (12128): Elaborating entity "reg4" for hierarchy "control_unit:u2|controller:u1|reg4:u1"
+Warning (12125): Using design file n_ctl.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: n_ctl-behav
+    Info (12023): Found entity 1: n_ctl
+Info (12128): Elaborating entity "n_ctl" for hierarchy "control_unit:u2|controller:u1|n_ctl:u2"
+Warning (12125): Using design file alu_ctl.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: alu_ctl-behav
+    Info (12023): Found entity 1: alu_ctl
+Info (12128): Elaborating entity "alu_ctl" for hierarchy "control_unit:u2|controller:u1|alu_ctl:u3"
+Warning (12125): Using design file ram_ctl.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: RAM_ctl-behav
+    Info (12023): Found entity 1: RAM_ctl
+Info (12128): Elaborating entity "RAM_ctl" for hierarchy "control_unit:u2|controller:u1|RAM_ctl:u4"
+Warning (12125): Using design file pc_ctl.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: PC_ctl-behav
+    Info (12023): Found entity 1: PC_ctl
+Info (12128): Elaborating entity "PC_ctl" for hierarchy "control_unit:u2|controller:u1|PC_ctl:u5"
+Warning (12125): Using design file rf_ctl.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: RF_ctl-behav
+    Info (12023): Found entity 1: RF_ctl
+Info (12128): Elaborating entity "RF_ctl" for hierarchy "control_unit:u2|controller:u1|RF_ctl:u6"
+Warning (12125): Using design file instru_reg.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: instru_reg-behavioral
+    Info (12023): Found entity 1: instru_reg
+Info (12128): Elaborating entity "instru_reg" for hierarchy "control_unit:u2|instru_reg:u2"
+Warning (10492): VHDL Process Statement warning at instru_reg.vhd(25): signal "ir" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (12125): Using design file programcounter.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: programcounter-behav
+    Info (12023): Found entity 1: programcounter
+Info (12128): Elaborating entity "programcounter" for hierarchy "control_unit:u2|programcounter:u3"
+Error (10344): VHDL expression error at programcounter.vhd(26): expression has 5 elements, but must have 4 elements File: C:/Users/gusta/Downloads/processor_definitivo4/processor_definitivo/programcounter.vhd Line: 26
+Error (12152): Can't elaborate user hierarchy "control_unit:u2|programcounter:u3" File: C:/Users/gusta/Downloads/processor_definitivo4/processor_definitivo/control_unit.vhd Line: 98
+Error: Quartus II 32-bit Analysis & Synthesis was unsuccessful. 2 errors, 33 warnings
+    Error: Peak virtual memory: 385 megabytes
+    Error: Processing ended: Wed Aug 14 12:59:31 2024
+    Error: Elapsed time: 00:00:02
+    Error: Total CPU time (on all processors): 00:00:01
+
+
