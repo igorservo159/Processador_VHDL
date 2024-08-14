@@ -15,7 +15,6 @@ architecture behav of RAM is
      type ram_type is array(0 to 255) of std_logic_vector(15 downto 0);
      signal ram: ram_type;
      signal temp_address: std_logic_vector(7 downto 0);
-
 begin
 
 process(clk_ram) is

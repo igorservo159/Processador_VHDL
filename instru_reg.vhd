@@ -16,15 +16,15 @@ begin
 
   process(clk_ir)
   begin
-    if clr_ir = '1' then
-      ir <= (others => '0');
-    elsif rising_edge(clk_ir) then
+    if clk_ir = '1' and rising_edge(clk_ir) then
       if ld_ir = '1' then
         ir <= instr_in;
       end if;
     end if;
+
+    instr_out <= ir;
   end process;
 
-  instr_out <= ir;
+  
 
 end behavioral;
